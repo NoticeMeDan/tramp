@@ -3,9 +3,9 @@ import React from 'react'
 class Questionnaire extends React.Component {
 	state = {
 		name: "",
-		gender: "",
+		gender: "other",
 		age: 15,
-		artists: [],
+		chosenArtists: [],
 		grades: {
 			toilet: 1,
 			festival: 1,
@@ -33,7 +33,7 @@ class Questionnaire extends React.Component {
 	render() {
 		return(
 			<div className='contact-container'>
-				<form onSubmit={(e) => this.handleSubmit(e)} id="contactForm">
+				<form id="contactForm">
 					<label htmlFor="name">Name</label>
 					<input 
 						value={this.state.name} 
@@ -42,20 +42,48 @@ class Questionnaire extends React.Component {
 						placeholder="Mark funny guy" 
 						required
 					/>
-					<label htmlFor="email">Email</label>
-					<input 
-						value={this.state.email} 
+
+					<label htmlFor="gender">Gender</label>
+					<select 
+						value={this.state.gender} 
 						onChange={(e) => this.handleChange(e)}
-						id="email"
-						type="email" 
-						placeholder="Email" 
+						id="gender"
+						required
+					>
+						<option value="male"> Mand </option>
+						<option value="female"> Kvinde </option>
+						<option value="other"> Andet </option>
+					</select>
+
+					<label htmlFor="age">Age</label>
+					<input 
+						value={this.state.age} 
+						onChange={(e) => this.handleChange(e)}
+						id="age" 
+						type="number"
+						min="15"
+						max="120"
 						required
 					/>
-					<label htmlFor="message">Message</label>
+
+					<label htmlFor="gender">Artists</label>
+					<select 
+						value={this.state.gender} 
+						onChange={(e) => this.handleChange(e)}
+						id="gender"
+						multiple
+						required
+					>
+						{this.state.artists.map(artist => (
+							<checkbox value={artist.name.toLowerCase()}> {artist.name} </checkbox>
+						))}
+					</select>
+
+					<label htmlFor="food">Food</label>
 					<textarea 
-						value={this.state.message} 
+						value={this.state.food} 
 						onChange={(e) => this.handleChange(e)}		
-						id="message" 
+						id="food" 
 						rows="20" 
 						cols="40" 
 						placeholder="I want to know why there are no pissoires on the school?!?!" required></textarea>
