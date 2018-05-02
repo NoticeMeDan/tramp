@@ -25,7 +25,7 @@ module.exports = {
 	  publicPath: '/',
 	  compress: true,
 	  overlay: true,
-	  port: 3001,
+	  port: 3000,
 	},
 
 	target: 'web',
