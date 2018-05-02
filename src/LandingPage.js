@@ -9,7 +9,7 @@ class LandingPage extends React.Component {
 			<div>
 				<div>
 					<img src="assets/big-picture.jpeg" className="big-picture"/>
-					<Link to="/questionnaire" />
+					<Link to="/questionnaire"> Make awesome questionnaire </Link>
 				</div>
 
 				<div className="explanation">
