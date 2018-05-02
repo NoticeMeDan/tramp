@@ -1,19 +1,23 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class Questionnaire extends React.Component {
 	state = {
-		name: "",
-		gender: "other",
-		age: 15,
-		chosenArtists: [],
-		grades: {
-			toilet: 1,
-			festival: 1,
-			nature: 1
+		form: {
+			name: "",
+			gender: "other",
+			age: 15,
+			chosenArtists: [],
+			grades: {
+				toilet: 1,
+				festival: 1,
+				nature: 1
+			},
+			money: 100,
+			food: "",
 		},
-		money: 100,
-		food: "",
-		artists: []	
+		artists: [],
+		artistMenuToggled: false
 	}
 
 	componentDidMount() {
@@ -23,11 +27,35 @@ class Questionnaire extends React.Component {
 	}
 
 	handleChange = (e) => {
-		this.setState({[e.target.id]: e.target.value})
+		this.setState(prevState => ({ 
+			form: {
+				[e.target.id]: e.target.value,
+				...prevState.form 
+			}
+		}))
+	}
+
+	handleGrades = (e) => {
+		this.setState(prevState => ({ 
+			form: {
+				grades: {
+					[e.target.id]: e.target.value,
+					...prevState.form.grades 
+				}
+			}
+		}))
 	}
 
 	handleSubmit = () => {
 		
+	}
+
+	chooseArtists = (e, artist) => {
+		this.setState(prevState => ({chosenArtists: prevState.form.chosenArtists.push(artist)}), 
+			() => {
+				if(this.state.form.chosenArtists.length === 3)
+					this.setState(prevState => {artistsMenuToggled: false})
+			})
 	}
 
 	render() {
@@ -36,7 +64,7 @@ class Questionnaire extends React.Component {
 				<form id="contactForm">
 					<label htmlFor="name">Name</label>
 					<input 
-						value={this.state.name} 
+						value={this.state.form.name} 
 						onChange={(e) => this.handleChange(e)}
 						id="name" 
 						placeholder="Mark funny guy" 
@@ -45,7 +73,7 @@ class Questionnaire extends React.Component {
 
 					<label htmlFor="gender">Gender</label>
 					<select 
-						value={this.state.gender} 
+						value={this.state.form.gender} 
 						onChange={(e) => this.handleChange(e)}
 						id="gender"
 						required
@@ -57,7 +85,7 @@ class Questionnaire extends React.Component {
 
 					<label htmlFor="age">Age</label>
 					<input 
-						value={this.state.age} 
+						value={this.state.form.age} 
 						onChange={(e) => this.handleChange(e)}
 						id="age" 
 						type="number"
@@ -66,29 +94,72 @@ class Questionnaire extends React.Component {
 						required
 					/>
 
-					<label htmlFor="gender">Artists</label>
-{/*					<select 
-						value={this.state.gender} 
-						onChange={(e) => this.handleChange(e)}
-						id="gender"
-						multiple
+					<label htmlFor="artists">Artists</label>
+					<div className="artist-menu" id="artists">
+					{this.state.artists.map(artist => (
+						<input 
+							key={artist}
+							type="checkbox" 
+							value={artist}
+							onChange={(e) => this.chooseArtists(e, artist)}
+						/>
+					))}
+					</div>
+
+					<label htmlFor="age">Toilets</label>
+					<input 
+						value={this.state.form.grades.toilet} 
+						onChange={(e) => this.handleGrades(e)}
+						id="toilet" 
+						type="number"
+						min="1"
+						max="5"
 						required
-					>
-						{this.state.artists.map(artist => (
-							<checkbox value={artist.name.toLowerCase()}> {artist.name} </checkbox>
-						))}
-					</select>*/}
+					/>
+
+					<label htmlFor="age">Festival</label>
+					<input 
+						value={this.state.form.grades.festival} 
+						onChange={(e) => this.handleGrades(e)}
+						id="festival" 
+						type="number"
+						min="1"
+						max="5"
+						required
+					/>
+
+					<label htmlFor="age">Nature</label>
+					<input 
+						value={this.state.form.grades.nature} 
+						onChange={(e) => this.handleGrades(e)}
+						id="nature" 
+						type="number"
+						min="1"
+						max="5"
+						required
+					/>
+
+					<label htmlFor="age">Money</label>
+					<input 
+						value={this.state.form.money} 
+						onChange={(e) => this.handleChange(e)}
+						id="nature" 
+						type="number"
+						min="1"
+						required
+					/>
 
 					<label htmlFor="food">Food</label>
 					<textarea 
-						value={this.state.food} 
+						value={this.state.form.food} 
 						onChange={(e) => this.handleChange(e)}		
 						id="food" 
 						rows="20" 
 						cols="40" 
 						placeholder="I want to know why there are no pissoires on the school?!?!" required></textarea>
-					<button id="submit" type="submit">Check answers</button>
 				</form>
+
+				<Link to={{pathname: "/overview", state: this.state.form}}> Check Answers </Link>
 			</div>
 		)
 	}
