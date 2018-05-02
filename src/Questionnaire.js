@@ -67,7 +67,7 @@ class Questionnaire extends React.Component {
 					/>
 
 					<label htmlFor="gender">Artists</label>
-					<select 
+{/*					<select 
 						value={this.state.gender} 
 						onChange={(e) => this.handleChange(e)}
 						id="gender"
@@ -77,7 +77,7 @@ class Questionnaire extends React.Component {
 						{this.state.artists.map(artist => (
 							<checkbox value={artist.name.toLowerCase()}> {artist.name} </checkbox>
 						))}
-					</select>
+					</select>*/}
 
 					<label htmlFor="food">Food</label>
 					<textarea 
