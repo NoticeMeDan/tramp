@@ -7,9 +7,13 @@ import Overview from './Overview'
 const App = () => (
 	<BrowserRouter>
 		<Fragment>
-      <Route exact path="/" component={About} />
-      <Route exact path="/questionnaire" component={Questionnaire} />
-      <Route exact path="/overview" component={Overview} />
+			<div className="topBar">
+				<img src="assets/Marktramp_logo.svg" className="logo" />
+			</div>
+
+			<Route exact path="/" component={LandingPage} />
+			<Route exact path="/questionnaire" component={Questionnaire} />
+			<Route exact path="/overview" component={Overview} />
 		</Fragment>
 	</BrowserRouter>
 )
