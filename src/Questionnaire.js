@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {Link} from 'react-router-dom'
 
 class Questionnaire extends React.Component {
@@ -23,7 +23,7 @@ class Questionnaire extends React.Component {
 	componentDidMount() {
 		fetch("https://syst-api.azurewebsites.net/marktramp/artists")
 		.then(res => res.json())
-		.then(artists => this.setState({artists}))
+		.then(artists => this.setState({artists}, console.log(artists)))
 	}
 
 	handleChange = (e) => {
@@ -97,12 +97,16 @@ class Questionnaire extends React.Component {
 					<label htmlFor="artists">Artists</label>
 					<div className="artist-menu" id="artists">
 					{this.state.artists.map(artist => (
-						<input 
-							key={artist}
-							type="checkbox" 
-							value={artist}
-							onChange={(e) => this.chooseArtists(e, artist)}
-						/>
+						<Fragment>
+							<label htmlFor="artist"> {artist} </label>
+							<input 
+								id={artist}
+								key={artist}
+								type="checkbox" 
+								value={artist}
+								onChange={(e) => this.chooseArtists(e, artist)}
+							/>
+						</Fragment>
 					))}
 					</div>
 
