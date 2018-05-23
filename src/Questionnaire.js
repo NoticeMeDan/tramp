@@ -9,7 +9,7 @@ class Questionnaire extends React.Component {
 			name: "",
 			gender: "M",
 			age: 15,
-			chosenArtists: [],
+			artists: [],
 			grades: {
 				toilet: 1,
 				festival: 1,
@@ -23,7 +23,7 @@ class Questionnaire extends React.Component {
 
 	componentDidMount() {
 		 getJSON('https://syst-api.azurewebsites.net/marktramp/artists')
-			.then(artists => this.setState({artists}, console.log(artists)))
+			.then(artists => this.setState({artists}))
 	}
 
 	/* Generic form handling */
@@ -44,22 +44,22 @@ class Questionnaire extends React.Component {
 	}
 
 	addArtist = artist => {
-		let newArtists = this.state.form.chosenArtists
+		let newArtists = this.state.form.artists
 		newArtists.push(artist)
-        this.handleFormChange('chosenArtists', newArtists)
+        this.handleFormChange('artists', newArtists)
 	}
 
 	removeArtist = artist => {
-		const newArtists = this.state.form.chosenArtists.filter(x => x !== artist)
-        this.handleFormChange('chosenArtists', newArtists)
+		const newArtists = this.state.form.artists.filter(x => x !== artist)
+        this.handleFormChange('artists', newArtists)
     }
 
 	render() {
 		// This was previously named isArtistDisabled, but we decided to rename it dur to PC reasons. :)
 		const isArtistButtonDisabled = artist => {
-			return this.state.form.chosenArtists.includes(artist)
+			return this.state.form.artists.includes(artist)
 				? false
-				: this.state.form.chosenArtists.length === 3
+				: this.state.form.artists.length === 3
 		}
 
 		return(
