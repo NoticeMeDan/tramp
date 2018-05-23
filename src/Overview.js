@@ -16,7 +16,7 @@ class Overview extends React.Component {
 				<p>Festival: {festival}</p> 
 				<p>Nature: {nature}</p>
 				{chosenArtists.map(artist => (
-					<p> {artist} </p>
+					<p key={artist}> {artist} </p>
 				))}
 			</div>
 		)

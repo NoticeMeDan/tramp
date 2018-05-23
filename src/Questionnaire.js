@@ -1,11 +1,13 @@
 import React, {Fragment} from 'react'
 import {Link} from 'react-router-dom'
+import {getJSON} from './util/ajax'
+import setInPath from 'lodash/set'
 
 class Questionnaire extends React.Component {
 	state = {
 		form: {
 			name: "",
-			gender: "other",
+			gender: "M",
 			age: 15,
 			chosenArtists: [],
 			grades: {
@@ -16,78 +18,75 @@ class Questionnaire extends React.Component {
 			money: 100,
 			food: "",
 		},
-		artists: [],
-		artistMenuToggled: false
+		artists: []
 	}
 
 	componentDidMount() {
-		fetch("https://syst-api.azurewebsites.net/marktramp/artists")
-		.then(res => res.json())
-		.then(artists => this.setState({artists}, console.log(artists)))
+		 getJSON('https://syst-api.azurewebsites.net/marktramp/artists')
+			.then(artists => this.setState({artists}, console.log(artists)))
 	}
 
-	handleChange = (e) => {
-		this.setState(prevState => ({ 
-			form: {
-				[e.target.id]: e.target.value,
-				...prevState.form 
-			}
-		}))
+	/* Generic form handling */
+
+	handleFormChange = (path, val) => {
+		const fullPath = `form.${path}`
+		this.setState(setInPath(this.state, fullPath, val))
 	}
 
-	handleGrades = (e) => {
-		this.setState(prevState => ({ 
-			form: {
-				grades: {
-					[e.target.id]: e.target.value,
-					...prevState.form.grades 
-				}
-			}
-		}))
+	handleInputChange = path => e => {
+		this.handleFormChange(path, e.target.value)
 	}
 
-	handleSubmit = () => {
-		
+	/* Artist specific form handling */
+
+	handleArtistChange = artist => e => {
+		e.target.checked ? this.addArtist(artist) : this.removeArtist(artist)
 	}
 
-	chooseArtists = (e, artist) => {
-		this.setState(prevState => ({chosenArtists: prevState.form.chosenArtists.push(artist)}), 
-			() => {
-				if(this.state.form.chosenArtists.length === 3)
-					this.setState(prevState => {artistsMenuToggled: false})
-			})
+	addArtist = artist => {
+		let newArtists = this.state.form.chosenArtists
+		newArtists.push(artist)
+        this.handleFormChange('chosenArtists', newArtists)
 	}
+
+	removeArtist = artist => {
+		const newArtists = this.state.form.chosenArtists.filter(x => x !== artist)
+        this.handleFormChange('chosenArtists', newArtists)
+    }
 
 	render() {
+		// This was previously named isArtistDisabled, but we decided to rename it dur to PC reasons. :)
+		const isArtistButtonDisabled = artist => {
+			return this.state.form.chosenArtists.includes(artist)
+				? false
+				: this.state.form.chosenArtists.length === 3
+		}
+
 		return(
 			<div className='contact-container'>
 				<form id="contactForm">
 					<label htmlFor="name">Name</label>
 					<input 
 						value={this.state.form.name} 
-						onChange={(e) => this.handleChange(e)}
-						id="name" 
-						placeholder="Mark funny guy" 
+						onChange={this.handleInputChange('name')}
+						placeholder="Mark funny guy"
 						required
 					/>
 
 					<label htmlFor="gender">Gender</label>
 					<select 
 						value={this.state.form.gender} 
-						onChange={(e) => this.handleChange(e)}
-						id="gender"
+						onChange={this.handleInputChange('gender')}
 						required
 					>
-						<option value="male"> Mand </option>
-						<option value="female"> Kvinde </option>
-						<option value="other"> Andet </option>
+						<option value="M"> Mand </option>
+						<option value="F"> Kvinde </option>
 					</select>
 
 					<label htmlFor="age">Age</label>
 					<input 
 						value={this.state.form.age} 
-						onChange={(e) => this.handleChange(e)}
-						id="age" 
+						onChange={this.handleInputChange('age')}
 						type="number"
 						min="15"
 						max="120"
@@ -97,14 +96,13 @@ class Questionnaire extends React.Component {
 					<label htmlFor="artists">Artists</label>
 					<div className="artist-menu" id="artists">
 					{this.state.artists.map(artist => (
-						<Fragment>
+						<Fragment key={artist}>
 							<label htmlFor="artist"> {artist} </label>
 							<input 
-								id={artist}
-								key={artist}
-								type="checkbox" 
+								type="checkbox"
 								value={artist}
-								onChange={(e) => this.chooseArtists(e, artist)}
+								disabled={isArtistButtonDisabled(artist)}
+								onChange={this.handleArtistChange(artist)}
 							/>
 						</Fragment>
 					))}
@@ -113,8 +111,7 @@ class Questionnaire extends React.Component {
 					<label htmlFor="age">Toilets</label>
 					<input 
 						value={this.state.form.grades.toilet} 
-						onChange={(e) => this.handleGrades(e)}
-						id="toilet" 
+						onChange={this.handleInputChange('grades.toilet')}
 						type="number"
 						min="1"
 						max="5"
@@ -124,8 +121,7 @@ class Questionnaire extends React.Component {
 					<label htmlFor="age">Festival</label>
 					<input 
 						value={this.state.form.grades.festival} 
-						onChange={(e) => this.handleGrades(e)}
-						id="festival" 
+						onChange={this.handleInputChange('grades.festival')}
 						type="number"
 						min="1"
 						max="5"
@@ -135,8 +131,7 @@ class Questionnaire extends React.Component {
 					<label htmlFor="age">Nature</label>
 					<input 
 						value={this.state.form.grades.nature} 
-						onChange={(e) => this.handleGrades(e)}
-						id="nature" 
+						onChange={this.handleInputChange('grades.nature')}
 						type="number"
 						min="1"
 						max="5"
@@ -146,8 +141,7 @@ class Questionnaire extends React.Component {
 					<label htmlFor="age">Money</label>
 					<input 
 						value={this.state.form.money} 
-						onChange={(e) => this.handleChange(e)}
-						id="nature" 
+						onChange={this.handleInputChange('money')}
 						type="number"
 						min="1"
 						required
@@ -156,11 +150,10 @@ class Questionnaire extends React.Component {
 					<label htmlFor="food">Food</label>
 					<textarea 
 						value={this.state.form.food} 
-						onChange={(e) => this.handleChange(e)}		
-						id="food" 
-						rows="20" 
+						onChange={this.handleInputChange('food')}
+						rows="20"
 						cols="40" 
-						placeholder="I want to know why there are no pissoires on the school?!?!" required></textarea>
+						placeholder="I want to know why there are no pissoires on the school?!?!" required />
 				</form>
 
 				<Link to={{pathname: "/overview", state: this.state.form}}> Check Answers </Link>
