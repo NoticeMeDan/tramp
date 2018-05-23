@@ -55,7 +55,7 @@ class Questionnaire extends React.Component {
     }
 
 	render() {
-		// This was previously named isArtistDisabled, but we decided to rename it dur to PC reasons. :)
+		// This was previously named isArtistDisabled, but we decided to rename it due to PC reasons. :)
 		const isArtistButtonDisabled = artist => {
 			return this.state.form.artists.includes(artist)
 				? false
