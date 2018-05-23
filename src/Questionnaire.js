@@ -156,6 +156,7 @@ class Questionnaire extends React.Component {
 						placeholder="I want to know why there are no pissoires on the school?!?!" required />
 				</form>
 
+				{/* TODO: Don't allow user to continue, unless data is correct */}
 				<Link to={{pathname: "/overview", state: this.state.form}}> Check Answers </Link>
 			</div>
 		)
