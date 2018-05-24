@@ -28,7 +28,14 @@ const ajax = (url, settings) => {
  * @returns {Promise<any>}
  */
 export const getJSON = url => {
-    return ajax(url, null)
+    const settings = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }
+    
+    return ajax(url, settings)
         .then(res => res.json())
 }
 
@@ -41,7 +48,11 @@ export const getJSON = url => {
 export const postJSON = (url, body) => {
     const settings = {
         method: 'POST',
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
     }
 
     return ajax(url, settings)
