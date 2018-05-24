@@ -44,9 +44,7 @@ class Questionnaire extends React.Component {
 	}
 
 	addArtist = artist => {
-		let newArtists = this.state.form.artists
-		newArtists.push(artist)
-        this.handleFormChange('artists', newArtists)
+        this.handleFormChange('artists', [...this.state.form.artists, artist])
 	}
 
 	removeArtist = artist => {
@@ -57,9 +55,8 @@ class Questionnaire extends React.Component {
 	render() {
 		// This was previously named isArtistDisabled, but we decided to rename it due to PC reasons. :)
 		const isArtistButtonDisabled = artist => {
-			return this.state.form.artists.includes(artist)
-				? false
-				: this.state.form.artists.length === 3
+			return !this.state.form.artists.includes(artist)
+				&& this.state.form.artists.length === 3
 		}
 
 		return(
