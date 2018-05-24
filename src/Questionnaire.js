@@ -48,8 +48,7 @@ class Questionnaire extends React.Component {
 	}
 
 	removeArtist = artist => {
-		const newArtists = this.state.form.artists.filter(x => x !== artist)
-        this.handleFormChange('artists', newArtists)
+        this.handleFormChange('artists', this.state.form.artists.filter(x => x !== artist))
     }
 
 	render() {
