@@ -1,0 +1,29 @@
+p{
+	
+	justify-content: center;
+	display:flex;
+	display-direction: column;
+	margin-bottom: 40px;
+
+}
+
+.overview{
+	background-image: url("/assets/big-picture.jpeg");
+	background-position: center;
+	height: 700px;
+	color: white;
+	background-color: white;
+}
+
+.name{
+	font-size: 18px;
+	padding: 40px;
+	position: absolute;
+	left: 40%;
+	top: 20%;
+	text-align: center;
+		background-color: white;
+		color: black;
+		border-radius: 10px;
+	
+}

@@ -1,0 +1,38 @@
+.big-picture{
+	height: 400px;
+	width: 100%;
+}
+
+.team-picture{
+	display: flex;
+	flex-direction: row;
+	height: auto;
+	width: 40%;
+	justify-content: center;
+}
+
+.explanation{
+	height: 300px;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: middle;
+}
+
+.team{
+	display: flex;
+	flex-direction: row;
+}
+
+.question{
+	display: flex;
+	display-direction: column;
+	justify-content: middle;
+	
+	align-content: middle;
+}
+
+h2{
+	margin-left: 400px;
+}
+

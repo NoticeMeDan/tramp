@@ -82,6 +82,7 @@ class Questionnaire extends React.Component {
 						<option value="female"> Kvinde </option>
 						<option value="other"> Andet </option>
 					</select>
+					
 
 					<label htmlFor="age">Age</label>
 					<input 
@@ -110,6 +111,7 @@ class Questionnaire extends React.Component {
 					))}
 					</div>
 
+					<div className="priotity">
 					<label htmlFor="age">Toilets</label>
 					<input 
 						value={this.state.form.grades.toilet} 
@@ -142,6 +144,7 @@ class Questionnaire extends React.Component {
 						max="5"
 						required
 					/>
+					</div>
 
 					<label htmlFor="age">Money</label>
 					<input 
@@ -154,6 +157,7 @@ class Questionnaire extends React.Component {
 					/>
 
 					<label htmlFor="food">Food</label>
+					<div className="food">
 					<textarea 
 						value={this.state.form.food} 
 						onChange={(e) => this.handleChange(e)}		
@@ -161,9 +165,12 @@ class Questionnaire extends React.Component {
 						rows="20" 
 						cols="40" 
 						placeholder="I want to know why there are no pissoires on the school?!?!" required></textarea>
-				</form>
-
+						</div>
+				
+						<div className="check">
 				<Link to={{pathname: "/overview", state: this.state.form}}> Check Answers </Link>
+			</div>
+			</form>
 			</div>
 		)
 	}

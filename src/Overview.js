@@ -6,7 +6,8 @@ class Overview extends React.Component {
 		const { toilet, festival, nature } = this.props.location.state.grades
 
 		return(
-			<div>
+			<div className="overview">
+				<div className="name">
 				<p>Name: {name}</p> 
 				<p>Gender: {gender}</p> 
 				<p>Food: {food}</p> 
@@ -18,6 +19,7 @@ class Overview extends React.Component {
 				{chosenArtists.map(artist => (
 					<p> {artist} </p>
 				))}
+				</div>
 			</div>
 		)
 	}	
