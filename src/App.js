@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import LandingPage from './LandingPage'
-import Questionnaire from './Questionnaire'
-import Overview from './Overview'
+import LandingPage from './pages/LandingPage'
+import Questionnaire from './pages/Questionnaire'
+import Overview from './pages/Overview'
 
 const App = () => (
 	<BrowserRouter>

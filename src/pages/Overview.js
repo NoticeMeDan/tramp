@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import {postJSON} from './util/ajax'
+import {postJSON} from '../util/ajax'
 
 import Modal from 'react-modal'
 

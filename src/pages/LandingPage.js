@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-import team from './team'
+import team from '../team'
 
 class LandingPage extends React.Component {
 	render() {

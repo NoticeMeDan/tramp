@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import {Link} from 'react-router-dom'
-import {getJSON} from './util/ajax'
+import {getJSON} from '../util/ajax'
 import setInPath from 'lodash/set'
 
 class Questionnaire extends React.Component {
