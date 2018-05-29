@@ -66,6 +66,7 @@ class Questionnaire extends React.Component {
 		return(
 			<div className='questionnaire-container'>
 				<form id="contactForm">
+					<h1> Questions </h1>
 					<label htmlFor="name">Name</label>
 					<input 
 						value={this.state.form.name} 
@@ -98,15 +99,16 @@ class Questionnaire extends React.Component {
 					<label htmlFor="artists">Artists</label>
 					<div className="artist-menu" id="artists">
 					{this.state.artists.map(artist => (
-						<Fragment key={artist}>
-							<label htmlFor="artist"> {artist} </label>
+						<div className="artist" key={artist}>
 							<input 
 								type="checkbox"
+								className="checkbox"
 								value={artist}
 								disabled={isArtistButtonDisabled(artist)}
 								onChange={this.handleArtistChange(artist)}
 							/>
-						</Fragment>
+							<label htmlFor="artist"> {artist} </label>
+						</div>
 					))}
 					</div>
 
