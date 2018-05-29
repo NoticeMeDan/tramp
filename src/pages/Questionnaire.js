@@ -81,8 +81,8 @@ class Questionnaire extends React.Component {
 						onChange={this.handleInputChange('gender')}
 						required
 					>
-						<option value="M"> Mand </option>
-						<option value="F"> Kvinde </option>
+						<option value="M"> (Cave) Man </option>
+						<option value="F"> (Fashion) Woman </option>
 					</select>
 					
 
