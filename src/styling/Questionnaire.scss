@@ -1,0 +1,67 @@
+.questionnaire-container {
+	background-image: url("/assets/big-picture.jpeg");
+	background-position: center;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	border: black;
+	color: white;
+	padding: 2em 0;
+
+	form {
+		margin-top: 20px;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		width: 80%;
+		max-width: 600px;
+		background-color: $dark-green;
+		align-items: center;
+		border-radius: 10px;
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}
+
+	.artist-menu {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 80%;
+		max-width: 240px;
+	}
+
+	.priority {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	label {
+		padding-top: 15px;
+	}
+
+	.food {
+		margin-bottom: 20px;
+	}
+
+	.check {
+		padding: 12px;
+		border: solid 1px white;
+		border-radius: 4px;
+		margin-bottom: 10px;
+
+		&:hover{
+			background-color: white;
+			a { 
+				color: black;
+				text-decoration: underline; 
+			}
+		}
+
+		a {
+			text-decoration: none;
+			color: white;
+		}
+	}
+}

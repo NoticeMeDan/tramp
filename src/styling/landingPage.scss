@@ -1,0 +1,131 @@
+%container-box {
+	height: 500px;
+	width: 100%;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.landing-page {
+	.picture-container {
+		@extend %container-box;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+
+		.big-picture{
+			width: 100%;
+
+			@media screen and (max-width: 760px) {
+				height: 100%;
+				width: auto;
+			}
+		}
+
+		.link {
+			display: flex;
+			background: white;
+			font-size: 3em;
+			position: absolute;
+			justify-content: center;
+			align-items: center;
+			border-radius: 10px;
+			text-decoration: none;
+			color: black;
+			border: 1px solid black;
+			padding: 10px;
+
+			&:hover {
+				text-decoration: underline;
+				background: $light-blue;
+			}
+
+			@media screen and (max-width: 800px) {
+				font-size: 2em;
+			}
+
+			@media screen and (max-width: 400px) {
+				font-size: 1.4em;
+			}
+
+		}
+	}
+
+	.why-container {
+		@extend %container-box;
+		flex-flow: row wrap;
+		justify-content: space-evenly;
+		text-align: center;
+
+		h1 {
+			width: 100%;
+		}
+
+		.subject {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 200px;
+
+			img {
+				width: 80%;
+			}
+		}
+	}
+
+	.map-container {
+		@extend %container-box;
+		background-color: $dusty-pink;
+		justify-content: center;
+		align-items: center;
+		color: white;
+
+		#map {
+			margin-top: 2em;
+			height: 65%;
+			max-width: 800px;
+			width: 70%;
+		}
+	}
+
+	.team-container {
+		@extend %container-box;
+		justify-content: space-evenly;
+		background-color: $dark-green;
+
+		.team-member {
+			width: 80%;
+			margin-left: 10%;
+			display:flex;
+			flex-direction: row;
+			justify-content: center;
+
+			.picture {
+				order: 1;
+				border-radius: 50%;
+				height: 9em;
+				width: 9em;
+				justify-content: center;
+				margin-right: 2em; 
+			}
+			.flow-column {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				order: 2;
+				color: white;
+			}
+			&:nth-child(2n) {
+				.picture {
+					margin-left: 2em;
+					order: 2;
+				}
+				.flow-column {
+					order: 1;
+				}
+			}
+		}
+	}
+}

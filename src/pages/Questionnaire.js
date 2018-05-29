@@ -24,6 +24,11 @@ class Questionnaire extends React.Component {
 	componentDidMount() {
 		 getJSON('https://syst-api.azurewebsites.net/marktramp/artists')
 			.then(artists => this.setState({artists}))
+			.then(() => {
+				if(this.props.location.state) {
+					this.setState({form: this.props.location.state})
+				}
+			})
 	}
 
 	/* Generic form handling */
@@ -59,25 +64,25 @@ class Questionnaire extends React.Component {
 		}
 
 		return(
-			<div className='contact-container'>
+			<div className='questionnaire-container'>
 				<form id="contactForm">
+					<h1> Questions </h1>
 					<label htmlFor="name">Name</label>
 					<input 
 						value={this.state.form.name} 
 						onChange={this.handleInputChange('name')}
 						placeholder="Mark funny guy"
-						required
 					/>
 
 					<label htmlFor="gender">Gender</label>
 					<select 
 						value={this.state.form.gender} 
 						onChange={this.handleInputChange('gender')}
-						required
 					>
-						<option value="M"> Mand </option>
-						<option value="F"> Kvinde </option>
+						<option value="M"> Man </option>
+						<option value="F"> Woman </option>
 					</select>
+					
 
 					<label htmlFor="age">Age</label>
 					<input 
@@ -86,24 +91,25 @@ class Questionnaire extends React.Component {
 						type="number"
 						min="15"
 						max="120"
-						required
 					/>
 
 					<label htmlFor="artists">Artists</label>
 					<div className="artist-menu" id="artists">
 					{this.state.artists.map(artist => (
-						<Fragment key={artist}>
-							<label htmlFor="artist"> {artist} </label>
+						<div className="artist" key={artist}>
 							<input 
 								type="checkbox"
+								className="checkbox"
 								value={artist}
 								disabled={isArtistButtonDisabled(artist)}
 								onChange={this.handleArtistChange(artist)}
 							/>
-						</Fragment>
+							<label htmlFor="artist"> {artist} </label>
+						</div>
 					))}
 					</div>
 
+					<div className="priority">
 					<label htmlFor="age">Toilets</label>
 					<input 
 						value={this.state.form.grades.toilet} 
@@ -111,7 +117,6 @@ class Questionnaire extends React.Component {
 						type="number"
 						min="1"
 						max="5"
-						required
 					/>
 
 					<label htmlFor="age">Festival</label>
@@ -121,7 +126,6 @@ class Questionnaire extends React.Component {
 						type="number"
 						min="1"
 						max="5"
-						required
 					/>
 
 					<label htmlFor="age">Nature</label>
@@ -131,8 +135,8 @@ class Questionnaire extends React.Component {
 						type="number"
 						min="1"
 						max="5"
-						required
 					/>
+					</div>
 
 					<label htmlFor="age">Money</label>
 					<input 
@@ -140,20 +144,27 @@ class Questionnaire extends React.Component {
 						onChange={this.handleInputChange('money')}
 						type="number"
 						min="1"
-						required
 					/>
 
 					<label htmlFor="food">Food</label>
-					<textarea 
-						value={this.state.form.food} 
-						onChange={this.handleInputChange('food')}
-						rows="20"
-						cols="40" 
-						placeholder="I want to know why there are no pissoires on the school?!?!" required />
+					<div className="food">
+						<textarea 
+							value={this.state.form.food} 
+							onChange={this.handleInputChange('food')}
+							rows="10"
+							cols="30" 
+							placeholder="I have a lot of special requirements">
+						</textarea>
+					</div>
+				
+					<div className="check">
+						{/* TODO: Don't allow user to continue, unless data is correct */}
+						<Link to={{pathname: "/overview", state: this.state.form}}> 
+							Check Answers 
+						</Link>
+					</div>
 				</form>
 
-				{/* TODO: Don't allow user to continue, unless data is correct */}
-				<Link to={{pathname: "/overview", state: this.state.form}}> Check Answers </Link>
 			</div>
 		)
 	}
