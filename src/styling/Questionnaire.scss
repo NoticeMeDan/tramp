@@ -1,4 +1,4 @@
-.questionnaire-container{
+.questionnaire-container {
 	background-image: url("/assets/big-picture.jpeg");
 	background-position: center;
 	display: flex;
@@ -6,31 +6,35 @@
 	justify-content: center;
 	border: black;
 	color: white;
+	padding: 2em 0;
 
 	form {
 		margin-top: 20px;
 		display: flex;
 		justify-content: center;
-		padding: 10px;
 		flex-direction: column;
-		width: 30%;
+		width: 80%;
+		max-width: 600px;
 		background-color: $dark-green;
 		align-items: center;
-		height: 800px;
 		border-radius: 10px;
 		padding-top: 2em;
 		padding-bottom: 2em;
 	}
 
 	.artist-menu {
-		padding-bottom: 20px;
-		width: 70%; 
-		flex-direction: row;  
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 80%;
+		max-width: 240px;
 	}
 
 	.priority {
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 
 	label {
