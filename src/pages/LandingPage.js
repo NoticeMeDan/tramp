@@ -48,6 +48,7 @@ class LandingPage extends React.Component {
 
 
 				<div className="team-container">
+					<h2> The Team </h2>
 					{team.map(teamMember => (
 						<div key={teamMember.name} className="team-member">
 							<img className="picture" src={teamMember.picture} />
