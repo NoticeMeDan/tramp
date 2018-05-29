@@ -1,8 +1,27 @@
 body {
+	line-height: 1.4;
+	background-color: $light-blue;
+
 	h1, h2, h3 {
 		font-family: $font-family-headline;
 	}
 	p, a {
 		font-family: $font-family-text;
+	}
+
+	h1 {
+		font-size: 2.2em;
+	}
+
+	h2 {
+		font-size: 2em;
+	}
+
+	h3 {
+		font-size: 1.8em;
+	}
+
+	p {
+		font-size: 1.4em;
 	}
 }

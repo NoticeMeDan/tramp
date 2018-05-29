@@ -1,38 +1,114 @@
-.big-picture{
-	height: 400px;
-	width: 100%;
-}
-
-.team-picture{
+%container-box {
+	height: 500px;
+	width: 100vw;
 	display: flex;
-	flex-direction: row;
-	height: auto;
-	width: 40%;
+	flex-flow: column wrap;
 	justify-content: center;
+	align-items: center;
 }
 
-.explanation{
-	height: 300px;
-	background-color: white;
-	display: flex;
-	flex-direction: column;
-	justify-content: middle;
-}
+.landing-page {
+	.picture-container {
+		@extend %container-box;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
 
-.team{
-	display: flex;
-	flex-direction: row;
-}
+		.big-picture{
+			width: 100%;
+		}
 
-.question{
-	display: flex;
-	display-direction: column;
-	justify-content: middle;
-	
-	align-content: middle;
-}
+		.link {
+			display: flex;
+			background: $light-blue;
+			font-size: 3em;
+			width: 150px;
+			height: 80px;
+			position: absolute;
+			top: 400px;
+			justify-content: center;
+			align-items: center;
+			border-radius: 10px;
+			text-decoration: none;
+			color: black;
+			border: 1px solid black;
 
-h2{
-	margin-left: 400px;
-}
+			&:hover {
+				box-shadow: inset 0em 0em 11px rgba(133, 133, 133, 0.8);
+				text-decoration: underline;
+				background: $dusty-pink;
+			}
+		}
+	}
 
+	.why-container {
+		@extend %container-box;
+		flex-direction: row;
+		justify-content: space-evenly;
+
+		.subject {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 200px;
+
+			img {
+				width: 80%;
+			}
+		}
+	}
+
+	.map-container {
+		@extend %container-box;
+		background-color: $dusty-pink;
+		justify-content: center;
+		align-items: center;
+		color: white;
+
+		#map {
+			margin-top: 2em;
+			height: 80%;
+			width: 60%;
+		}
+	}
+
+	.team-container {
+		@extend %container-box;
+		justify-content: space-evenly;
+		background-color: $dark-green;
+
+		.team-member {
+			width: 80%;
+			margin-left: 10%;
+			display:flex;
+			flex-direction: row;
+			justify-content: center;
+
+			.picture {
+				order: 1;
+				border-radius: 50%;
+				height: 9em;
+				width: 9em;
+				justify-content: center;
+				margin-right: 2em; 
+			}
+			.flow-column {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				order: 2;
+				color: white;
+			}
+			&:nth-child(2n) {
+				.picture {
+					margin-left: 2em;
+					order: 2;
+				}
+				.flow-column {
+					order: 1;
+				}
+			}
+		}
+	}
+}
