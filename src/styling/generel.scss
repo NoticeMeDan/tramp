@@ -32,4 +32,38 @@ body {
 			width: auto;
 		}
 	}
+
+	footer {
+		background-color: $black;
+		display: flex;
+		justify-content: center;
+		font-family: $font-family-text;
+		font-size: 1.2em;
+
+		.contact {
+			display: flex;
+			flex-direction: column;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			width: 250px;
+
+			color: white;
+
+			.contact-info {
+				width: 100%;
+				display: flex;
+
+				img {
+					width: 7%;
+					color: white;
+					margin-right: 5px;
+				}
+
+				div {
+					width: 93%;
+					border-bottom: 1px solid white;
+				}
+			}
+		}
+	}
 }
