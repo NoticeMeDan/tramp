@@ -10,7 +10,8 @@ class Overview extends Component {
 
 	submitSurvey = formObj => {
 		postJSON('https://syst-api.azurewebsites.net/marktramp/survey', formObj) // Do something with the result - handle errors
-			.then(res => console.log(res))
+			.then(() => this.props.history.push('/'))
+			.catch(() => alert('Shit, noget gik galt.. Prøv igen!'))
 	}
 
 	toggleModal = () => {
