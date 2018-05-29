@@ -7,8 +7,8 @@ import Overview from './Overview'
 const App = () => (
 	<BrowserRouter>
 		<Fragment>
-			<div className="topBar">
-				<img src="assets/Marktramp_logo.svg" className="logo" />
+			<div className="top-bar">
+				<img src="assets/Marktramp_logo_outlined.svg" className="logo" />
 			</div>
 
 			<Route exact path="/" component={LandingPage} />

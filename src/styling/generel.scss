@@ -7,6 +7,7 @@ body {
 	}
 	p, a {
 		font-family: $font-family-text;
+		font-size: 1.4em;
 	}
 
 	h1 {
@@ -21,7 +22,14 @@ body {
 		font-size: 1.8em;
 	}
 
-	p {
-		font-size: 1.4em;
+	.top-bar {
+		width: 100vw;
+		padding: 10px 2em;
+		background-color: $black;
+
+		.logo {
+			height: 60px;
+			width: auto;
+		}
 	}
 }

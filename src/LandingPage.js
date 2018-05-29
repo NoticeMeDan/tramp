@@ -5,13 +5,13 @@ import team from './team'
 
 class LandingPage extends React.Component {
 	componentDidMount() {
-	  // The location of Uluru
-	  const uluru = {lat: -25.344, lng: 131.036};
-	  // The map, centered at Uluru
+	  // The location of MarkTramp
+	  const markTramp = {lat: 56.468820, lng: 10.142050};
+	  // The map, centered at MarkTramp
 	  const map = new google.maps.Map(
-	      document.getElementById('map'), {zoom: 4, center: uluru});
-	  // The marker, positioned at Uluru
-	  const marker = new google.maps.Marker({position: uluru, map: map});
+	      document.getElementById('map'), {zoom: 10, center: markTramp});
+	  // The marker, positioned at MarkTramp
+	  const marker = new google.maps.Marker({position: markTramp, map: map});
 	}
 
 
