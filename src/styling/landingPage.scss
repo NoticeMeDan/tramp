@@ -54,8 +54,13 @@
 
 	.why-container {
 		@extend %container-box;
-		flex-direction: row;
+		flex-flow: row wrap;
 		justify-content: space-evenly;
+		text-align: center;
+
+		h1 {
+			width: 100%;
+		}
 
 		.subject {
 			display: flex;

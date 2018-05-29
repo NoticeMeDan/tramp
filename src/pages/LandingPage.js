@@ -24,6 +24,7 @@ class LandingPage extends React.Component {
 				</div>
 
 				<div className="why-container">
+					<h1> Why? </h1>
 					<div className="subject">
 						<img src=""/>
 						<p> This is a lot of text explaining why the questionnaire can help so much </p>
