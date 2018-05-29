@@ -30,6 +30,12 @@
 		border-radius: 2em;
 		margin-bottom: 1.5em;
 		padding: 5px 1em;
+		background-color: transparent;
+		&:hover{
+			background-color: white;
+			color: black;
+			text-decoration: underline; 
+		}
 	}
 	.edit {
 		font-size: 1em;
@@ -45,5 +51,32 @@
 		display: flex;
 		display-direction: column;
 		margin-bottom: 40px;
+	}
+}
+
+.modal-content {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	p {
+		line-height: 1.9;
+	}
+
+	button {
+		text-decoration: none;
+		font-size: 1.4em;
+		border: 1px black solid;
+		border-radius: 2em;
+		padding: 5px 1em;
+		background-color: white;
+
+		&:hover{
+			background-color: red;
+			color: black;
+			text-decoration: underline; 
+		}
 	}
 }
