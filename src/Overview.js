@@ -2,7 +2,6 @@ import React, {Component, Fragment} from 'react'
 import {postJSON} from './util/ajax'
 
 import Modal from 'react-modal'
-Modal.setAppElement('#app')
 
 class Overview extends Component {
 	state = {
@@ -28,7 +27,10 @@ class Overview extends Component {
 			<Fragment>
 				<h2>{`Tusinde tak, ${name}!`}</h2>
 				<button onClick={this.toggleModal}>Se dine svar</button>
-				<Modal isOpen={this.state.answerModalIsOpen} contentLabel='Dine svar'>
+				<Modal
+					isOpen={this.state.answerModalIsOpen}
+					contentLabel='Dine svar'
+					appElement={document.querySelector('#app')}>
                     <div>
                         <p>Navn: {name}</p>
                         <p>Køn: {gender}</p>
@@ -38,9 +40,12 @@ class Overview extends Component {
                         <p>Toilet: {toilet}</p>
                         <p>Festival: {festival}</p>
                         <p>Natur: {nature}</p>
-                        {artists.map(artist => (
-                            <p key={artist}> {artist} </p>
-                        ))}
+						<p>Kunstnere: </p>
+						<ul>
+                            {artists.map(artist => (
+                                <li key={artist}>{artist}</li>
+                            ))}
+						</ul>
                         <button onClick={this.toggleModal}>Luk</button>
                     </div>
 				</Modal>
