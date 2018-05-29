@@ -1,31 +1,51 @@
 import React, {Component, Fragment} from 'react'
 import {postJSON} from './util/ajax'
 
+import Modal from 'react-modal'
+Modal.setAppElement('#app')
+
 class Overview extends Component {
+	state = {
+		answerModalIsOpen: false
+	}
+
 	submitSurvey = formObj => {
 		postJSON('https://syst-api.azurewebsites.net/marktramp/survey', formObj) // Do something with the result - handle errors
 	}
 
+	toggleModal = () => {
+		this.setState({
+            answerModalIsOpen: !this.state.answerModalIsOpen
+		})
+	}
+
 	render() {
-		const { gender, age, food, money, name, artists } = this.props.location.state
-		const { toilet, festival, nature } = this.props.location.state.grades
+		console.log(this.state)
+        const { gender, age, food, money, name, artists } = this.props.location.state
+        const { toilet, festival, nature } = this.props.location.state.grades
 
 		return(
 			<Fragment>
-                <div>
-                    <p>Name: {name}</p>
-                    <p>Gender: {gender}</p>
-                    <p>Food: {food}</p>
-                    <p>Money: {money}</p>
-                    <p>Age: {age}</p>
-                    <p>Toilet: {toilet}</p>
-                    <p>Festival: {festival}</p>
-                    <p>Nature: {nature}</p>
-                    {artists.map(artist => (
-                        <p key={artist}> {artist} </p>
-                    ))}
-                </div>
-				<button onClick={() => this.submitSurvey(this.props.location.state)}>Submit</button>
+				<h2>{`Tusinde tak, ${name}!`}</h2>
+				<button onClick={this.toggleModal}>Se dine svar</button>
+				<Modal isOpen={this.state.answerModalIsOpen} contentLabel='Dine svar'>
+                    <div>
+                        <p>Navn: {name}</p>
+                        <p>Køn: {gender}</p>
+                        <p>Mad: {food}</p>
+                        <p>Penge: {money}</p>
+                        <p>Alder: {age}</p>
+                        <p>Toilet: {toilet}</p>
+                        <p>Festival: {festival}</p>
+                        <p>Natur: {nature}</p>
+                        {artists.map(artist => (
+                            <p key={artist}> {artist} </p>
+                        ))}
+                        <button onClick={this.toggleModal}>Luk</button>
+                    </div>
+				</Modal>
+                <br />
+				<button onClick={() => this.submitSurvey(this.props.location.state)}>Send</button>
 			</Fragment>
 		)
 	}	
