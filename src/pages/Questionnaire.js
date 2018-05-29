@@ -64,7 +64,7 @@ class Questionnaire extends React.Component {
 		}
 
 		return(
-			<div className='contact-container'>
+			<div className='questionnaire-container'>
 				<form id="contactForm">
 					<label htmlFor="name">Name</label>
 					<input 

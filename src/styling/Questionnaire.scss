@@ -1,4 +1,4 @@
-.contact-container{
+.questionnaire-container{
 	background-image: url("/assets/big-picture.jpeg");
 	background-position: center;
 	display: flex;
@@ -35,7 +35,6 @@
 
 	label {
 		padding-top: 15px;
-		font-family: verdana;
 	}
 
 	.food {
@@ -50,23 +49,15 @@
 
 		&:hover{
 			background-color: white;
-
-			a {
-				text-decoration: underline;
+			a { 
 				color: black;
+				text-decoration: underline; 
 			}
 		}
 
 		a {
 			text-decoration: none;
-
-			
-			&:visited{
-				color: white;
-			}
-			&:active{
-				color: white;
-			}	
+			color: white;
 		}
 	}
 }
