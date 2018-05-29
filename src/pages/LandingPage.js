@@ -20,7 +20,7 @@ class LandingPage extends React.Component {
 			<div className="landing-page">
 				<div className="picture-container">
 					<img src="assets/big-picture.jpeg" className="big-picture"/>
-					<Link to="/questionnaire" className="link"> Help! </Link>
+					<Link to="/questionnaire" className="link"> Help the festival! </Link>
 				</div>
 
 				<div className="why-container">

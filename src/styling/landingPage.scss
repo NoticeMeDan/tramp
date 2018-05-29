@@ -16,14 +16,17 @@
 
 		.big-picture{
 			width: 100%;
+
+			@media screen and (max-width: 760px) {
+				height: 100%;
+				width: auto;
+			}
 		}
 
 		.link {
 			display: flex;
-			background: $light-blue;
+			background: white;
 			font-size: 3em;
-			width: 150px;
-			height: 80px;
 			position: absolute;
 			justify-content: center;
 			align-items: center;
@@ -31,12 +34,21 @@
 			text-decoration: none;
 			color: black;
 			border: 1px solid black;
+			padding: 10px;
 
 			&:hover {
-				box-shadow: inset 0em 0em 11px rgba(133, 133, 133, 0.8);
 				text-decoration: underline;
-				background: $dusty-pink;
+				background: $light-blue;
 			}
+
+			@media screen and (max-width: 800px) {
+				font-size: 2em;
+			}
+
+			@media screen and (max-width: 400px) {
+				font-size: 1.4em;
+			}
+
 		}
 	}
 
