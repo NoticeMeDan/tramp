@@ -26,6 +26,7 @@ body {
 		width: 100vw;
 		padding: 10px 2em;
 		background-color: $black;
+		box-sizing: border-box;
 
 		.logo {
 			height: 60px;
