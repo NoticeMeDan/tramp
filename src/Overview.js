@@ -10,6 +10,7 @@ class Overview extends Component {
 
 	submitSurvey = formObj => {
 		postJSON('https://syst-api.azurewebsites.net/marktramp/survey', formObj) // Do something with the result - handle errors
+			.then(res => console.log(res))
 	}
 
 	toggleModal = () => {
@@ -19,7 +20,6 @@ class Overview extends Component {
 	}
 
 	render() {
-		console.log(this.state)
         const { gender, age, food, money, name, artists } = this.props.location.state
         const { toilet, festival, nature } = this.props.location.state.grades
 
@@ -29,6 +29,7 @@ class Overview extends Component {
 				<button onClick={this.toggleModal}>Se dine svar</button>
 				<Modal
 					isOpen={this.state.answerModalIsOpen}
+					onRequestClose={this.toggleModal}
 					contentLabel='Dine svar'
 					appElement={document.querySelector('#app')}>
                     <div>
