@@ -25,8 +25,8 @@ class Questionnaire extends React.Component {
 		 getJSON('https://syst-api.azurewebsites.net/marktramp/artists')
 			.then(artists => this.setState({artists}))
 			.then(() => {
-				if(this.props.location.form) {
-					this.setState({form: this.props.location.form})
+				if(this.props.location.state) {
+					this.setState({form: this.props.location.state})
 				}
 			})
 	}
@@ -72,17 +72,15 @@ class Questionnaire extends React.Component {
 						value={this.state.form.name} 
 						onChange={this.handleInputChange('name')}
 						placeholder="Mark funny guy"
-						required
 					/>
 
 					<label htmlFor="gender">Gender</label>
 					<select 
 						value={this.state.form.gender} 
 						onChange={this.handleInputChange('gender')}
-						required
 					>
-						<option value="M"> (Cave) Man </option>
-						<option value="F"> (Fashion) Woman </option>
+						<option value="M"> Man </option>
+						<option value="F"> Woman </option>
 					</select>
 					
 
@@ -93,7 +91,6 @@ class Questionnaire extends React.Component {
 						type="number"
 						min="15"
 						max="120"
-						required
 					/>
 
 					<label htmlFor="artists">Artists</label>
@@ -120,7 +117,6 @@ class Questionnaire extends React.Component {
 						type="number"
 						min="1"
 						max="5"
-						required
 					/>
 
 					<label htmlFor="age">Festival</label>
@@ -130,7 +126,6 @@ class Questionnaire extends React.Component {
 						type="number"
 						min="1"
 						max="5"
-						required
 					/>
 
 					<label htmlFor="age">Nature</label>
@@ -140,7 +135,6 @@ class Questionnaire extends React.Component {
 						type="number"
 						min="1"
 						max="5"
-						required
 					/>
 					</div>
 
@@ -150,7 +144,6 @@ class Questionnaire extends React.Component {
 						onChange={this.handleInputChange('money')}
 						type="number"
 						min="1"
-						required
 					/>
 
 					<label htmlFor="food">Food</label>
@@ -160,8 +153,7 @@ class Questionnaire extends React.Component {
 							onChange={this.handleInputChange('food')}
 							rows="10"
 							cols="30" 
-							placeholder="I have a lot of special requirements"
-							required >
+							placeholder="I have a lot of special requirements">
 						</textarea>
 					</div>
 				
