@@ -1,11 +1,11 @@
 import React, {Fragment} from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
-import LandingPage from './LandingPage'
-import Questionnaire from './Questionnaire'
-import Overview from './Overview'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import LandingPage from './pages/LandingPage'
+import Questionnaire from './pages/Questionnaire'
+import Overview from './pages/Overview'
 
 const App = () => (
-	<BrowserRouter>
+	<Router>
 		<Fragment>
 			<div className="top-bar">
 				<img src="assets/Marktramp_logo_outlined.svg" className="logo" />
@@ -15,7 +15,7 @@ const App = () => (
 			<Route exact path="/questionnaire" component={Questionnaire} />
 			<Route exact path="/overview" component={Overview} />
 		</Fragment>
-	</BrowserRouter>
+	</Router>
 )
 
 export default App

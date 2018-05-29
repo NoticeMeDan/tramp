@@ -19,22 +19,23 @@
     "@babel/preset-react": "^7.0.0-beta.44",
     "babel-loader": "^8.0.0-beta.2",
     "clean-webpack-plugin": "^0.1.18",
+    "cross-env": "^5.1.6",
     "copy-webpack-plugin": "^4.5.0",
     "css-loader": "^0.28.10",
     "html-webpack-plugin": "^3.0.4",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.8.3",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-router-dom": "^4.2.2",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.20.3",
     "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13",
+    "webpack-cli": "^2.1.4",
     "webpack-dev-server": "^3.1.3"
   },
   "dependencies": {
-    "cross-env": "^5.1.6",
-    "lodash": "^4.17.10"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2",
+    "lodash": "^4.17.10",
+    "react-modal": "^3.4.4"
   }
 }
