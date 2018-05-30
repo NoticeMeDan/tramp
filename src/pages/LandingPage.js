@@ -28,7 +28,7 @@ class LandingPage extends React.Component {
 					<h3> It is incredibly important to us to know what we should prioritise when planning Marktramp. So your answers could help shape the festival! </h3>
 					<div className="subject">
 						<img src="/assets/icons/audio.png"/>
-						<p> Is this festival going to be all about the musiC? </p>
+						<p> Is this festival going to be all about the music? </p>
 					</div>
 					
 					<div className="subject">
