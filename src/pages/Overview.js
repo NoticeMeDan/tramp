@@ -22,7 +22,7 @@ class Overview extends Component {
 	submitSurvey = formObj => {
 		postJSON('https://syst-api.azurewebsites.net/marktramp/survey', formObj) // Do something with the result - handle errors
 			.then(() => this.props.history.push('/'))
-			.catch(() => alert('Shit, noget gik galt.. Prøv igen!'))
+			.catch(() => alert('Are you sure you filled out all the fields? Please write in plain english'))
 	}
 
 	toggleModal = () => {
@@ -63,7 +63,7 @@ class Overview extends Component {
 	                                <li key={artist}>  {artist}</li>
 	                            ))}
 							</ul>
-	                        <button onClick={this.toggleModal}>Luk</button>
+	                        <button onClick={this.toggleModal}>Close</button>
 	                    </div>
 					</Modal>
 	                <br />

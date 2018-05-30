@@ -1,6 +1,7 @@
 .questionnaire-container {
-	background-image: url("/assets/big-picture.jpeg");
-	background-position: center;
+	background: url("/assets/big-picture.jpeg") no-repeat center;
+	background-size: auto 100%;
+	background-color: $black;
 	display: flex;
 	align-content: center;
 	justify-content: center;
@@ -20,6 +21,12 @@
 		border-radius: 10px;
 		padding-top: 2em;
 		padding-bottom: 2em;
+
+		p, .special-label {
+			margin: 1em 15% 1em 15%;
+			font-size: 1.4em;
+			color: $dusty-pink;
+		}
 	}
 
 	.artist-menu {
@@ -27,7 +34,7 @@
 		flex-direction: column;
 		justify-content: center;
 		width: 80%;
-		max-width: 240px;
+		max-width: 280px;
 	}
 
 	.priority {

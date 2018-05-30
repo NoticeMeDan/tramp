@@ -24,7 +24,8 @@ class LandingPage extends React.Component {
 				</div>
 
 				<div className="why-container">
-					<h1> Why? </h1>
+					<h1> Why answer these questions? </h1>
+					<h3> It is incredibly important to us to know what we should prioritise when planning Marktramp. So your answers could help shape the festival! </h3>
 					<div className="subject">
 						<img src=""/>
 						<p> This is a lot of text explaining why the questionnaire can help so much </p>

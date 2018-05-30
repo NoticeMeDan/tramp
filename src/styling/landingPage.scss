@@ -62,6 +62,11 @@
 			width: 100%;
 		}
 
+		h3 {
+			width: 70%;
+			margin: auto 15%;
+		}
+
 		.subject {
 			display: flex;
 			flex-direction: column;
@@ -120,6 +125,7 @@
 				justify-content: center;
 				order: 2;
 				color: white;
+				max-width: 400px;
 			}
 			&:nth-child(2n) {
 				.picture {

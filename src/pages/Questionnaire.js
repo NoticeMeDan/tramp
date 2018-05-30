@@ -67,6 +67,7 @@ class Questionnaire extends React.Component {
 			<div className='questionnaire-container'>
 				<form id="contactForm">
 					<h1> Questions </h1>
+					<p> Please help us prioritise which areas is most important to have the best festival experience </p>
 					<label htmlFor="name">Name</label>
 					<input 
 						value={this.state.form.name} 
@@ -93,7 +94,7 @@ class Questionnaire extends React.Component {
 						max="120"
 					/>
 
-					<label htmlFor="artists">Artists</label>
+					<label className="special-label" htmlFor="artists">Choose the 3 artists you want to see the most:</label>
 					<div className="artist-menu" id="artists">
 					{this.state.artists.map(artist => (
 						<div className="artist" key={artist}>
@@ -109,6 +110,7 @@ class Questionnaire extends React.Component {
 					))}
 					</div>
 
+					<p> On a scale from 1-5 how important is: </p>
 					<div className="priority">
 					<label htmlFor="age">Toilets</label>
 					<input 
@@ -138,7 +140,7 @@ class Questionnaire extends React.Component {
 					/>
 					</div>
 
-					<label htmlFor="age">Money</label>
+					<label htmlFor="age" className="special-label">How much money, do you plan to bring with you?</label>
 					<input 
 						value={this.state.form.money} 
 						onChange={this.handleInputChange('money')}
@@ -146,7 +148,7 @@ class Questionnaire extends React.Component {
 						min="1"
 					/>
 
-					<label htmlFor="food">Food</label>
+					<label htmlFor="food" className="special-label">Anything special we should consider about the food?</label>
 					<div className="food">
 						<textarea 
 							value={this.state.form.food} 
