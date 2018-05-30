@@ -27,17 +27,17 @@ class LandingPage extends React.Component {
 					<h1> Why answer these questions? </h1>
 					<h3> It is incredibly important to us to know what we should prioritise when planning Marktramp. So your answers could help shape the festival! </h3>
 					<div className="subject">
-						<img src=""/>
+						<img src="/assets/icons/audio.png"/>
 						<p> This is a lot of text explaining why the questionnaire can help so much </p>
 					</div>
 					
 					<div className="subject">
-						<img src=""/>
+						<img src="/assets/icons/leaf.png"/>
 						<p> 2 This is a lot of text explaining why the questionnaire can help so much </p>
 					</div>
 
 					<div className="subject">
-						<img src=""/>
+						<img src="/assets/icons/beer.png"/>
 						<p> 3 This is a lot of text explaining why the questionnaire can help so much </p>
 					</div>
 				</div>
