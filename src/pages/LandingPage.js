@@ -28,22 +28,22 @@ class LandingPage extends React.Component {
 					<h3> It is incredibly important to us to know what we should prioritise when planning Marktramp. So your answers could help shape the festival! </h3>
 					<div className="subject">
 						<img src="/assets/icons/audio.png"/>
-						<p> This is a lot of text explaining why the questionnaire can help so much </p>
+						<p> Is this festival going to be all about the musiC? </p>
 					</div>
 					
 					<div className="subject">
 						<img src="/assets/icons/leaf.png"/>
-						<p> 2 This is a lot of text explaining why the questionnaire can help so much </p>
+						<p> Do we need to decorate a lot and make sure nature is all around you? </p>
 					</div>
 
 					<div className="subject">
 						<img src="/assets/icons/beer.png"/>
-						<p> 3 This is a lot of text explaining why the questionnaire can help so much </p>
+						<p> Are we into very cheap beers or expensive liqueur? </p>
 					</div>
 				</div>
 
 				<div className="map-container">
-					<h2> Where it is going down </h2>
+					<h2> Where it is going to happen </h2>
 					<div id="map"></div>
 				</div>
 
